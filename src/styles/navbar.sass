@@ -1,0 +1,129 @@
+$mainPink: #f67599
+$text-content: #2a2a2a
+$dark: #000
+$light: #ffffff
+$footer-grey: #e5e5e5
+$footer-text-grey: #808080
+$step-grey: #afb1bd
+$step-checked: #2a2a2a
+$border-grey: #f0f0f5
+$input-grey: #999999
+$cart-bg: #ffffff
+
+nav
+  width: 100%
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px
+  .nav-container
+    max-width: 1280px
+    margin: 0 auto
+    height: 80px
+    display: flex
+    align-items: center
+    justify-content: space-between
+    padding-left: 2%
+    padding-right: 2%
+    position: relative
+    .nav-logo
+      margin-right: 2%
+      cursor: pointer
+      text-decoration: none
+      color: $text-content
+      font-size: 32px
+      font-weight: 900
+      // +breakpoint(pad-portrait-980)
+      //   font-size: 1em
+      // +breakpoint(mobile)
+      //   display: none
+    img
+      width: 24px
+      height: 24px
+    .search-container
+      width: 600px
+      border: 1px solid $footer-grey
+      height: 50px
+      border-radius: 25px
+      display: inline
+      position: relative
+      #search
+        border: none
+        background: transparent
+        border-radius: 5px
+        height: 48px
+        width: 100%
+        outline: none
+        padding-left: 5%
+        color: $input-grey
+      button
+        position: absolute
+        top: 6.5px
+        right: 7px
+        border-radius: 50%
+        width: 35px
+        height: 35px
+        border: none
+        background: $text-content
+        .search-icon
+          width: 15px
+          height: 15px
+          line-height: 35px
+          margin-bottom: 4px
+    .nav-toggle
+      margin-left: 1em
+      min-width: 40px
+      min-height: 40px
+      display: flex
+      align-items: center
+      justify-content: center
+      cursor: pointer
+      border: 1px solid $light
+      &:hover
+        border: 1px solid $footer-grey
+      .nav-ham
+        position: relative
+        width: 24px
+        height: 2px
+        background: $text-content
+        transition: 0.5s cubic-bezier(0.175, -0.885, 0.32, 1.285)
+        &::before, &::after
+          position: absolute
+          content: ''
+          width: 24px
+          height: 2px
+          background: $text-content
+          top: -8px
+          transition: 0.5s cubic-bezier(0.175, -0.885, 0.32, 1.285)
+        &::after
+          top: 8px
+    .nav-toggled
+      border-radius: 50%
+      background: $footer-grey
+      .nav-ham
+        background: transparent
+        &::before
+          transform: translate(0px, 8px)rotate(45deg)
+        &::after
+          transform: translate(0px, -8px)rotate(-45deg)
+  .nav-options
+    width: 200px
+    position: absolute
+    z-index: 2
+    background: $light
+    top: 70px
+    right: 2%
+    padding: 1em
+    border: 1px solid $footer-grey
+    border-radius: 10px
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 6px
+    &-item
+      font-size: 18px
+      text-align: right
+      display: block
+      padding: 4px
+      text-decoration: none
+      color: $footer-text-grey
+      cursor: pointer
+      &:hover
+        color: $text-content
+        font-weight: 500
+
+

@@ -5,7 +5,7 @@ import Navbar from './components/Navbar'
 import Home from './views/Home'
 import Login from './views/Login'
 
-import './styles/App.css';
+import './styles/App.sass';
 
 
 function App() {
@@ -16,7 +16,6 @@ function App() {
           <Route index element={<Home />} />
           <Route path="login" element={<Login />} />
         </Route>
-          
       </Routes>
     </Router>
   );
