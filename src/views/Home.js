@@ -1,15 +1,18 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import productAPI from '../apis/product'
+import { useDispatch } from 'react-redux'
+import { getProducts } from '../store/actions/productAction'
 
 import ProductItem from '../components/ProductItem'
 
 import '../styles/home.sass'
 
-const Home = () => {
+const Home = ({ match }) => {
+  
+  const dispatch = useDispatch()
 
   useEffect(() => {
-
+    dispatch(getProducts())
   })
 
   return (
