@@ -4,7 +4,7 @@ import { Outlet, Link } from 'react-router-dom'
 import '../styles/navbar.sass'
 
 const Navbar = () => {
-  const [toggled, setToggled] = useState(true)
+  const [toggled, setToggled] = useState(false)
   const toggleList = () => {
     setToggled(!toggled)
   }
@@ -17,7 +17,7 @@ const Navbar = () => {
             <input type="text" name="search" id="search" placeholder="開始搜尋" />
             <button></button>
           </div>
-          <div className="nav-toggle" onClick={toggleList}>
+          <div className={`nav-toggle ${ toggled? 'nav-toggled': '' }`} onClick={toggleList}>
             <div className="nav-ham"></div>
           </div>
           {toggled && (

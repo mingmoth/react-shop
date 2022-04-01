@@ -1,11 +1,20 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import productAPI from '../apis/product'
+
+import ProductItem from '../components/ProductItem'
+
+import '../styles/home.sass'
 
 const Home = () => {
-  return (
-    <div className="Home">
-      <h1>Home</h1>
-      <Link to="login">Login</Link>
 
+  useEffect(() => {
+
+  })
+
+  return (
+    <div className="home">
+      
     </div >
   )
 }
