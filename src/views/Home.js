@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-// import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProducts } from '../store/actions/productAction'
 
@@ -7,11 +6,12 @@ import ProductItem from '../components/ProductItem'
 
 import '../styles/home.sass'
 
-const Home = ({ match }) => {
-  // let page = match.query.page
+const Home = () => {
   const dispatch = useDispatch()
 
-  const { products } = useSelector((state) => state.product)
+  const { product, user } = useSelector((state) => state)
+  const { products } = product
+  const { isAuthenticated, currentUser } = user
   
   useEffect(() => {
     dispatch(getProducts())
