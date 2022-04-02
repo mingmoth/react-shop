@@ -26,8 +26,8 @@ const Navbar = () => {
               <Link to="/" className="nav-options-item">購物車</Link>
               <Link to="/" className="nav-options-item">訂單列表</Link>
               <Link to="/" className="nav-options-item">登出</Link>
-              <Link to="/login" className="nav-options-item">登入</Link>
-              <Link to="/" className="nav-options-item">註冊</Link>
+              <Link to="/signin" className="nav-options-item">登入</Link>
+              <Link to="/signup" className="nav-options-item">註冊</Link>
             </div>
           )}
           

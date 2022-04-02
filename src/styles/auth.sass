@@ -1,0 +1,65 @@
+
+
+$mainPink: #f67599
+$text-content: #2a2a2a
+$dark: #000
+$light: #ffffff
+$footer-grey: #e5e5e5
+$footer-text-grey: #808080
+$step-grey: #afb1bd
+$step-checked: #2a2a2a
+$border-grey: #f0f0f5
+$input-grey: #999999
+$cart-bg: #ffffff
+
+.auth
+  width: 100vw
+  height: 100vh
+.auth-wrapper
+  max-width: 500px
+  min-width: 300px
+  border-radius: 1em
+  margin: 150px auto
+  padding: 1.5em
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px
+  // +breakpoint(mobile)
+  //   width: 100%
+
+.auth-unit
+  margin-bottom: 1em
+  .auth-label
+    display: block
+    font-weight: bold
+  .auth-input
+    margin-top: 0.5em
+    width: 96%
+    height: 30px
+    border: none
+    outline: none
+    border-bottom: 1px solid $footer-text-grey
+.auth-submit
+  margin-top: 0.5em
+  width: 100%
+  border: 1px solid $step-checked
+  background: $step-checked
+  color: $light
+  height: 40px
+  font-size: 1em
+  font-weight: 500
+  border-radius: 0.25em
+  cursor: pointer
+  &:hover
+    background: $light
+    color: $step-checked
+.auth-signup
+  margin-top: 1em
+  color: $footer-text-grey
+  font-size: 1em
+  text-align: end
+.auth-signup-link
+  color: $step-checked
+  font-size: 1em
+  font-weight: bold
+  text-decoration: none
+  &:hover
+    text-decoration: underline
