@@ -15,9 +15,9 @@ const ProductItem = ({ product }) => {
             </Link>
           </div>
           <div className="product-body">
-            <Link to="/" className="product-name"></Link>
-            <div className="product-description">XXXXXXX</div>
-            <div className="product-price"><span>$</span> QQQQQQQ</div>
+            <Link to="/" className="product-name">{product.name}</Link>
+            <div className="product-description">{product.description}</div>
+            <div className="product-price"><span>$</span> {product.price}</div>
             <button className="product-add">加入購物車</button>
           </div>
         </div>

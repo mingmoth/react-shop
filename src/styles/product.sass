@@ -11,8 +11,7 @@ $input-grey: #999999
 $cart-bg: #ffffff
 
 .product
-  flex-basis: 20%
-  max-width: 20%
+  flex-basis: 18%
   margin: 2% 0
   padding: 0 1%
   display: flex
@@ -25,7 +24,7 @@ $cart-bg: #ffffff
     width: 100%
     padding-top: 100%
     position: relative
-    img
+    .product-image
       position: absolute
       top: 0
       left: 0
@@ -33,10 +32,9 @@ $cart-bg: #ffffff
       width: 100%
       object-fit: cover
       border-radius: 6px 6px 0 0
-      
   .product-body
     padding: 8px
-    height: 200px
+    height: 150px
     position: relative
     .product-name
       font-size: 20px
@@ -54,41 +52,25 @@ $cart-bg: #ffffff
       margin-top: 3%
       font-size: 16px
       color: $text-content
-    form
-      position: absolute
-      right: 8px
-      bottom: 8px
-      display: flex
-      justify-content: end
+    .product-add
       margin-top: 5%
-      input
-        width: 30%
-        padding: 2%
-        padding-left: 6px
-        margin-right: 2%
-        border: 1px solid $footer-grey
-        font-size: 14px
-        color: $input-grey
-        &:hover, &:active
-          outline: 1px solid $input-grey
-        
-      .product-add
-        border: 1px solid $step-checked
-        background: $light
-        padding-left: 5%
-        padding-right: 5%
-        color: $step-checked
-        font-weight: 300
-        border-radius: 4px
-        &:hover
-          background: $step-checked
-          color: $light
-        // +breakpoint(mobile)
-        //   font-size: 12px
-  // +breakpoint(pad-portrait)
-  //   flex-basis: 50%
-  //   max-width: 50%
-  // +breakpoint(mobile)
-  //   min-width: 100%
+      border: 1px solid $step-checked
+      background: $light
+      padding-left: 5%        
+      padding-right: 5%
+      color: $step-checked
+      font-weight: 300
+      border-radius: 4px
+      cursor: pointer
+      &:hover
+        background: $step-checked
+        color: $light
+      // +breakpoint(mobile)
+      //   font-size: 12px
+// +breakpoint(pad-portrait)
+//   flex-basis: 50%
+//   max-width: 50%
+// +breakpoint(mobile)
+//   min-width: 100%
   
   
