@@ -14,3 +14,17 @@ export const getProducts = () => {
     }
   }
 }
+
+export const getProduct = (productId) => {
+  return async (dispatch) => {
+    try {
+      const { data, statusText } = await productAPI.getProduct(productId)
+      if (statusText !== "OK") {
+        throw new Error()
+      }
+      dispatch(productActions.getProduct(data))
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}

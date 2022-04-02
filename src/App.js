@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar'
 import Home from './views/Home'
 import Login from './views/Login'
+import Product from './views/Product'
 
 import './styles/App.sass';
 
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<Navbar />}>
           <Route index element={<Home />} />
           <Route path="login" element={<Login />} />
+          <Route path="/product/:id" element={<Product />} />
         </Route>
       </Routes>
     </Router>
