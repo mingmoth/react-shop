@@ -26,6 +26,32 @@ export const cartSlice = createSlice({
       state.cartItems.forEach((cart) => {
         state.totalPrice += (cart.price * cart.quantity)
       })
+    },
+    increaseCartItem: (state, action) => {
+      state.cartItems = state.cartItems.map(cart => {
+        if(cart.cartItemId === action.payload) {
+          state.totalPrice += cart.price
+          return cart = {
+            ...cart,
+            quantity: cart.quantity + 1
+          }
+        } else {
+          return cart
+        }
+      })
+    },
+    decreaseCartItem: (state, action) => {
+      state.cartItems = state.cartItems.map(cart => {
+        if (cart.cartItemId === action.payload) {
+          state.totalPrice -= cart.price
+          return cart = {
+            ...cart,
+            quantity: cart.quantity - 1
+          }
+        } else {
+          return cart
+        }
+      })
     }
   }
 })

@@ -50,19 +50,22 @@ $cart-bg: #ffffff
           text-decoration: none
         .cart-count
           display: flex
-          justify-content: space-between
           align-items: center
-          border: 1px solid rgba(0, 0, 0, 0.12)
           margin-top: 1em
-          width: 70px
           text-align: center
-          .cart-num
+          .cart-minus
             width: 20px
             cursor: pointer
+            border: 1px solid rgba(0, 0, 0, 0.12)
+            border-right: none
           .cart-quantity
             width: 30px
-            border-right: 1px solid rgba(0, 0, 0, 0.12)
-            border-left: 1px solid rgba(0, 0, 0, 0.12)
+            border: 1px solid rgba(0, 0, 0, 0.12)
+          .cart-plus
+            width: 20px
+            cursor: pointer
+            border: 1px solid rgba(0, 0, 0, 0.12)
+            border-left: none
         .cart-remove
           border: 1px solid $text-content
           color: $text-content

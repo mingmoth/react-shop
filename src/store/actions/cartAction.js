@@ -45,16 +45,59 @@ export const addCartItem = (productId) => {
 export const removeCartItem = (cartItemId) => {
   return async (dispatch) => {
     try {
-      const { data, statusText } = await cartAPI.removeCart(cartItemId)
+      const { statusText } = await cartAPI.removeCart(cartItemId)
       if (statusText !== "OK") {
         throw new Error()
       }
       dispatch(cartActions.removeCartItem(cartItemId))
       Toast.fire({
         icon: 'success',
-        title: '成功刪除購物車商品'
+        title: '成功刪除商品'
       })
-      console.log(data)
+    } catch (error) {
+      console.log(error)
+      Toast.fire({
+        icon: 'error',
+        title: error.message
+      })
+    }
+  }
+}
+
+export const increaseCartItem = (cartItemId) => {
+  return async (dispatch) => {
+    try {
+      const { statusText } = await cartAPI.increaseCart(cartItemId)
+      if (statusText !== "OK") {
+        throw new Error()
+      }
+      dispatch(cartActions.increaseCartItem(cartItemId))
+      Toast.fire({
+        icon: 'success',
+        title: '成功增加商品數量'
+      })
+    } catch (error) {
+      console.log(error)
+      Toast.fire({
+        icon: 'error',
+        title: error.message
+      })
+    }
+  }
+}
+
+export const decreaseCartItem = (cartItemId) => {
+  return async (dispatch) => {
+    try {
+      const { statusText } = await cartAPI.decreaseCart(cartItemId)
+      if (statusText !== "OK") {
+        throw new Error()
+      }
+      dispatch(cartActions.decreaseCartItem(cartItemId))
+      Toast.fire({
+        icon: 'success',
+        title: '成功減少商品數量'
+      })
     } catch (error) {
       console.log(error)
       Toast.fire({
