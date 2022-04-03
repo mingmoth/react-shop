@@ -1,20 +1,14 @@
-import { Route, Redirect } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-const PrivateRoute = ({ component: Component, ...rest}) => {
+const PrivateRoute = ({ children }) => {
   const { isAuthenticated, currentUser } = useSelector((state) => state.user)
   
-  return (
-    <Route 
-      {...rest}
-      render={(props) => {
-        if(isAuthenticated && currentUser.id) {
-          return  <Component {...props} />
-        }
-        return <Redirect to="/signin" />
-      }}
-    />
-  )
+  if (isAuthenticated && currentUser.id){
+    return children
+  } else {
+    alert('請先登入')
+    return <Navigate to="/signin" />
+  }
 }
-
 export default PrivateRoute
