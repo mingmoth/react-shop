@@ -10,7 +10,7 @@ const PrivateRoute = ({ children }) => {
   } else {
     Toast.fire({
       icon: 'warning',
-      title: '請先登入後再瀏覽購物車'
+      title: '請先登入後再使用相關功能'
     })
     return <Navigate to="/signin" />
   }

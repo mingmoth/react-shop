@@ -15,7 +15,7 @@ export const loginUser = ({ email, password }) => {
     } catch (error) {
       console.log(error)
       Toast.fire({
-        icon: 'danger',
+        icon: 'error',
         title: error.message
       })
       return false
@@ -34,7 +34,7 @@ export const signupUser = ({ name, email, password, passwordCheck }) => {
     } catch (error) {
       console.log(error)
       Toast.fire({
-        icon: 'danger',
+        icon: 'error',
         title: error.message
       })
       return false
