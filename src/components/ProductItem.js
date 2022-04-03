@@ -1,11 +1,13 @@
 import { Fragment } from "react"
 import { Link, useNavigate } from 'react-router-dom'
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { addCartItem } from '../store/actions/cartAction'
 import { Toast } from '../utils/toast'
 
 import '../styles/product.sass'
 
 const ProductItem = ({ product }) => {
+  const dispatch = useDispatch()
   const navigate = useNavigate()
   const { isAuthenticated, currentUser } = useSelector((state) => state.user)
 
@@ -18,6 +20,8 @@ const ProductItem = ({ product }) => {
       })
       navigate('/signin')
     }
+    // console.log(product.id)
+    dispatch(addCartItem(product.id))
   }
 
   return (

@@ -20,3 +20,24 @@ export const getCartItems = () => {
     }
   }
 }
+
+export const addCartItem = (productId) => {
+  return async () => {
+    try {
+      const { data, statusText } = await cartAPI.addCart(productId)
+      if (statusText !== "OK") {
+        throw new Error()
+      }
+      Toast.fire({
+        icon: 'success',
+        title: data.message
+      })
+    } catch (error) {
+      console.log(error)
+      Toast.fire({
+        icon: 'warning',
+        title: error.message
+      })
+    }
+  }
+}
