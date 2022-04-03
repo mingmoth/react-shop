@@ -49,3 +49,9 @@ export const getCurrentUser = () => {
     }
   }
 }
+
+export const logoutUser = () => {
+  return (dispatch) => {
+    dispatch(userActions.logoutUser())
+  }
+}

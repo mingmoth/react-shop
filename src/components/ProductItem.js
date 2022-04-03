@@ -1,9 +1,13 @@
 import { Fragment } from "react"
 import { Link } from 'react-router-dom'
+import { useSelector } from "react-redux"
 
 import '../styles/product.sass'
 
 const ProductItem = ({ product }) => {
+
+  const { isAuthenticated, currentUser } = useSelector((state) => state.user)
+
   return (
     <Fragment>
       <div className="product">

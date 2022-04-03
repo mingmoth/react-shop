@@ -1,12 +1,20 @@
 import { Fragment, useState } from "react"
 import { Outlet, Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { logoutUser } from '../store/actions/userAction'
 
 import '../styles/navbar.sass'
 
 const Navbar = () => {
+  const dispatch = useDispatch()
+  const { isAuthenticated, currentUser }  = useSelector((state) => state.user)
   const [toggled, setToggled] = useState(false)
   const toggleList = () => {
     setToggled(!toggled)
+  }
+  const logout = () => {
+    localStorage.removeItem('userToken')
+    dispatch(logoutUser())
   }
   return (
     <Fragment>
@@ -22,12 +30,15 @@ const Navbar = () => {
           </div>
           {toggled && (
             <div className="nav-options">
-              <Link to="/" className="nav-options-item">後臺管理</Link>
+              {currentUser.role === 'admin' && <Link to="/" className="nav-options-item">後臺管理</Link>}
               <Link to="/" className="nav-options-item">購物車</Link>
               <Link to="/" className="nav-options-item">訂單列表</Link>
-              <Link to="/signin" className="nav-options-item">登出</Link>
-              <Link to="/signin" className="nav-options-item">登入</Link>
-              <Link to="/signup" className="nav-options-item">註冊</Link>
+              {isAuthenticated ? <Link to="/signin" className="nav-options-item" onClick={logout}>登出</Link> : 
+                <Fragment>
+                  <Link to="/signin" className="nav-options-item">登入</Link>
+                  <Link to="/signup" className="nav-options-item">註冊</Link>
+                </Fragment>
+              }
             </div>
           )}
           

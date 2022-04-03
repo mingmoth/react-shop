@@ -10,7 +10,6 @@ const Home = () => {
   const dispatch = useDispatch()
 
   const { products } = useSelector((state) => state.product)
-  const { isAuthenticated, currentUser } = useSelector((state) => state.user)
   
   useEffect(() => {
     dispatch(getProducts())
