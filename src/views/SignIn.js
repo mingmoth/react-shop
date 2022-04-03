@@ -2,6 +2,7 @@ import { Fragment, useState } from "react"
 import { useNavigate, Link } from 'react-router-dom'
 import { useDispatch } from "react-redux"
 import { loginUser } from '../store/actions/userAction'
+import { Toast } from '../utils/toast'
 
 import '../styles/auth.sass'
 
@@ -14,13 +15,20 @@ const SignIn = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if(!email.trim() || !password) {
-      alert("請填入email和password")
+      Toast.fire({
+        icon: 'warning',
+        title: '請填入 電子郵件 和 密碼'
+      })
       return
     }
     console.log('submit')
     try {
       const result = await dispatch(loginUser({ email, password }))
       if(result) {
+        Toast.fire({
+          icon: 'success',
+          title: '成功登入'
+        })
         navigate('/')
       } else {
         throw new Error()

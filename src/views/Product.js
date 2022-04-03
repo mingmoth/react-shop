@@ -2,6 +2,7 @@ import { Fragment, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams, useNavigate } from "react-router-dom"
 import { getProduct } from '../store/actions/productAction'
+import { Toast } from '../utils/toast'
 
 import previousPage from '../assets/angle-left-solid.svg'
 
@@ -12,6 +13,19 @@ const Product = () => {
 
   const { product } = useSelector((state) => state.product)
   const { isAuthenticated } = useSelector((state) => state.user)
+
+  const addCart = (e) => {
+    e.preventDefault()
+    console.log('add')
+    if(!isAuthenticated) {
+      Toast.fire({
+        icon: 'warning',
+        title: '請先登入後再加入商品'
+      })
+      navigate('/signin')
+    }
+  }
+
   useEffect(() => {
     dispatch(getProduct(id))
   }, [dispatch, id])
@@ -31,7 +45,7 @@ const Product = () => {
           <div className="detail-name">{product.name} </div>
           <div className="detail-price"><span>$ </span>{product.price} </div>
           <div className="detail-description">{product.description} </div>
-          <button className="detail-add">加入購物車</button>
+          <button className="detail-add" onClick={addCart} >加入購物車</button>
         </div>
       </div>
     </Fragment>

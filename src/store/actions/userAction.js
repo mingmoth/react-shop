@@ -1,5 +1,6 @@
 import { userActions } from '../slices/userSlice'
 import userAPI from '../../apis/authorization'
+import { Toast } from '../../utils/toast'
 
 export const loginUser = ({ email, password }) => {
   return async (dispatch) => {
@@ -13,7 +14,10 @@ export const loginUser = ({ email, password }) => {
       return true
     } catch (error) {
       console.log(error)
-      alert(error.message)
+      Toast.fire({
+        icon: 'danger',
+        title: error.message
+      })
       return false
     }
   }
@@ -29,7 +33,10 @@ export const signupUser = ({ name, email, password, passwordCheck }) => {
       return true
     } catch (error) {
       console.log(error)
-      alert(error.message)
+      Toast.fire({
+        icon: 'danger',
+        title: error.message
+      })
       return false
     }
   }

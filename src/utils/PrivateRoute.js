@@ -1,5 +1,6 @@
 import { Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { Toast } from '../utils/toast'
 
 const PrivateRoute = ({ children }) => {
   const { isAuthenticated, currentUser } = useSelector((state) => state.user)
@@ -7,7 +8,10 @@ const PrivateRoute = ({ children }) => {
   if (isAuthenticated && currentUser.id){
     return children
   } else {
-    alert('請先登入')
+    Toast.fire({
+      icon: 'warning',
+      title: '請先登入後再瀏覽購物車'
+    })
     return <Navigate to="/signin" />
   }
 }

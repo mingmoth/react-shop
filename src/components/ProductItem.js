@@ -1,12 +1,24 @@
 import { Fragment } from "react"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useSelector } from "react-redux"
+import { Toast } from '../utils/toast'
 
 import '../styles/product.sass'
 
 const ProductItem = ({ product }) => {
-
+  const navigate = useNavigate()
   const { isAuthenticated, currentUser } = useSelector((state) => state.user)
+
+  const addCart = (e) => {
+    e.preventDefault()
+    if (!isAuthenticated || !currentUser) {
+      Toast.fire({
+        icon: 'warning',
+        title: '請先登入後再加入商品'
+      })
+      navigate('/signin')
+    }
+  }
 
   return (
     <Fragment>
@@ -21,7 +33,7 @@ const ProductItem = ({ product }) => {
             <Link to={`/product/${product.id}`} className="product-name">{product.name}</Link>
             <div className="product-description">{product.description}</div>
             <div className="product-price"><span>$</span> {product.price}</div>
-            <button className="product-add">加入購物車</button>
+            <button className="product-add" onClick={addCart} >加入購物車</button>
           </div>
         </div>
       </div>

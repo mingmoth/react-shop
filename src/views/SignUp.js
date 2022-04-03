@@ -2,6 +2,7 @@ import { Fragment, useState } from "react"
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch } from "react-redux"
 import { signupUser } from '../store/actions/userAction'
+import { Toast } from '../utils/toast'
 
 import '../styles/auth.sass'
 
@@ -17,11 +18,18 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     if(!name.trim() || !email || !password || !passwordCheck) {
-      alert('尚有空白欄位未填寫')
+      Toast.fire({
+        icon: 'warning',
+        title: '尚有空白欄位未填寫'
+      })
       return
     }
     if(password !== passwordCheck) {
-      alert('兩次輸入的密碼不同')
+      Toast.fire({
+        icon: 'warning',
+        title: '兩次輸入的密碼不同'
+      })
+      setPassword('')
       setPasswordCheck('')
       return
     }
@@ -29,6 +37,10 @@ const SignUp = () => {
     try {
       const result = await dispatch(signupUser({ name, email, password, passwordCheck }))
       if(result) {
+        Toast.fire({
+          icon: 'success',
+          title: '註冊成功'
+        })
         navigate('/signin')
       } else {
         throw new Error()
