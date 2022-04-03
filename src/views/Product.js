@@ -11,7 +11,7 @@ const Product = () => {
   let { id } = useParams()
 
   const { product } = useSelector((state) => state.product)
-
+  const { isAuthenticated } = useSelector((state) => state.user)
   useEffect(() => {
     dispatch(getProduct(id))
   }, [dispatch, id])

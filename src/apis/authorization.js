@@ -6,6 +6,9 @@ const useAPI = {
   },
   signup({ name, email, password, passwordCheck }) {
     return apiHelper.post('signup', { name, email, password, passwordCheck })
+  },
+  getCurrentUser() {
+    return apiHelper.get('/getUser')
   }
 }
 

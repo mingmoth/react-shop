@@ -9,9 +9,8 @@ import '../styles/home.sass'
 const Home = () => {
   const dispatch = useDispatch()
 
-  const { product, user } = useSelector((state) => state)
-  const { products } = product
-  const { isAuthenticated, currentUser } = user
+  const { products } = useSelector((state) => state.product)
+  const { isAuthenticated, currentUser } = useSelector((state) => state.user)
   
   useEffect(() => {
     dispatch(getProducts())

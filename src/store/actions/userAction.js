@@ -34,3 +34,18 @@ export const signupUser = ({ name, email, password, passwordCheck }) => {
     }
   }
 }
+
+export const getCurrentUser = () => {
+  return async (dispatch) => {
+    try {
+      const { data, statusText } = await userAPI.getCurrentUser()
+      if (statusText !== 'OK') {
+        throw new Error()
+      }
+      console.log(data)
+      dispatch(userActions.loginUser(data))
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
+}
