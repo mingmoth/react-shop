@@ -1,7 +1,15 @@
 import { Fragment } from "react"
 import { Link } from 'react-router-dom'
+import { useDispatch } from "react-redux"
+import { removeCartItem } from "../store/actions/cartAction"
 
 const CartItem = ({ cartItem }) => {
+  const dispatch = useDispatch()
+
+  const removeCart = (e) => {
+    e.preventDefault()
+    dispatch(removeCartItem(cartItem.CartItem.id))
+  }
   return (
     <Fragment>
       <div className="cart-item">
@@ -20,8 +28,8 @@ const CartItem = ({ cartItem }) => {
               <div className="cart-quantity">{cartItem.CartItem.quantity}</div>
               <div className="cart-num">+</div>
             </div>
-            <button className="cart-remove">移除</button>
-            <div className="cart-price">{cartItem.price}</div>
+            <button className="cart-remove" onClick={removeCart}>移除</button>
+            <div className="cart-price">$ {cartItem.price}</div>
           </div>
         </div>
       </div>

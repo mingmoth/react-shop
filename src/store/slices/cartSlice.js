@@ -9,9 +9,23 @@ export const cartSlice = createSlice({
   reducers: {
     getCart: (state, action) => {
       state.cartItems = action.payload
+      state.cartItems = state.cartItems.map(cart => {
+        return cart = {
+          ...cart,
+          cartItemId: cart.CartItem.id,
+          quantity: cart.CartItem.quantity
+        }
+      })
     },
     getTotalPrice: (state, action) => {
       state.totalPrice = action.payload
+    },
+    removeCartItem: (state, action) => {
+      state.cartItems = state.cartItems.filter(cart => cart.cartItemId !== action.payload)
+      state.totalPrice = 0
+      state.cartItems.forEach((cart) => {
+        state.totalPrice += (cart.price * cart.quantity)
+      })
     }
   }
 })

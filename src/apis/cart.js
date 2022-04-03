@@ -6,6 +6,15 @@ const cartAPI = {
   },
   addCart(productId) {
     return apiHelper.post(`/cartItem`, { productId })
+  },
+  removeCart(cartItemId) {
+    return apiHelper.put('/cartItem/del', { cartItemId })
+  },
+  increaseCart(cartItemId) {
+    return apiHelper.put('/cartItem/add', { cartItemId })
+  },
+  decreaseCart(cartItemId) {
+    return apiHelper.put('/cartItem/sub', { cartItemId })
   }
 }
 

@@ -35,7 +35,30 @@ export const addCartItem = (productId) => {
     } catch (error) {
       console.log(error)
       Toast.fire({
-        icon: 'warning',
+        icon: 'error',
+        title: error.message
+      })
+    }
+  }
+}
+
+export const removeCartItem = (cartItemId) => {
+  return async (dispatch) => {
+    try {
+      const { data, statusText } = await cartAPI.removeCart(cartItemId)
+      if (statusText !== "OK") {
+        throw new Error()
+      }
+      dispatch(cartActions.removeCartItem(cartItemId))
+      Toast.fire({
+        icon: 'success',
+        title: '成功刪除購物車商品'
+      })
+      console.log(data)
+    } catch (error) {
+      console.log(error)
+      Toast.fire({
+        icon: 'error',
         title: error.message
       })
     }
