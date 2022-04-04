@@ -1,0 +1,80 @@
+@import './variables'
+@import './rwd'
+
+.checkout-container
+  max-width: 1280px
+  margin: 0 auto
+  padding: 2% 
+  padding-top: 90px
+  .checkout-title
+  .checkout-wrapper
+    display: flex
+    .checkout-summary
+      flex: 1
+      margin-right: 1em
+      box-shadow: rgba(0, 0, 0, 0.12) 6px 6px 16px
+      padding: 1em
+      .summary-title
+        margin-top: 0
+      .summary-count
+        padding-top: 1em
+        padding-bottom: 1em
+        border-top: 1px solid rgba(0, 0, 0, 0.12)
+      .summary-price
+        font-weight: bold
+        padding-top: 1em
+        padding-bottom: 1em
+        border-top: 1px solid rgba(0, 0, 0, 0.12)
+        .summary-totalPrice
+          color: #ff385c
+    .checkout-info
+      flex: 2
+      box-shadow: rgba(0, 0, 0, 0.12) 6px 6px 16px
+      padding: 1em
+      .info-title
+        margin-top: 0
+      .checkout-unit
+        margin-bottom: 1em
+        .checkout-label
+          display: block
+          font-weight: bold
+        .checkout-input
+          margin-top: 0.5em
+          width: 99%
+          height: 30px
+          border: none
+          outline: none
+          border-bottom: 1px solid $footer-text-grey
+      .checkout-btn
+        margin-top: 0.5em
+        width: 100%
+        border: 1px solid #ff385c
+        background: $light
+        color: #ff385c
+        height: 40px
+        font-size: 1em
+        font-weight: bold
+        border-radius: 0.25em
+        cursor: pointer
+        &:hover
+          background: #ff385c
+          color: $light
+      .checkout-back
+        margin-top: 1em
+        width: 100%
+        border: 1px solid $step-checked
+        background: $light
+        color: $text-content
+        height: 40px
+        font-size: 1em
+        font-weight: 500
+        border-radius: 0.25em
+        cursor: pointer
+        &:hover
+          background: $text-content
+          color: $light
+    +breakpoint(mobile-landscape)
+      display: block
+      .checkout-summary
+        margin-right: 0
+        margin-bottom: 1em

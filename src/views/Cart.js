@@ -1,5 +1,6 @@
 import { Fragment, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
+import { Link } from "react-router-dom"
 import { getCartItems } from "../store/actions/cartAction"
 import CartItem from "../components/CartItem"
 
@@ -24,7 +25,7 @@ const Cart = () => {
         </div>
         <div className="cart-total">
           <h3 className="cart-amount">總金額: $ {totalPrice}</h3>
-          <button className="cart-checkout">送出購物車</button>
+          <Link to="/checkout"><button className="cart-checkout">送出購物車</button></Link>
         </div>
       </div>
     </Fragment>

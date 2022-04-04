@@ -13,6 +13,7 @@ import SignIn from './views/SignIn'
 import SignUp from './views/SignUp';
 import Product from './views/Product'
 import Cart from './views/Cart'
+import Checkout from './views/Checkout'
 
 import './styles/App.sass';
 
@@ -37,6 +38,9 @@ function App() {
           <Route path="/product/:id" element={<Product />} />
           <Route path="/cart" element={<PrivateRoute>
             <Cart />
+          </PrivateRoute>} />
+          <Route path="/checkout" element={<PrivateRoute>
+            <Checkout />
           </PrivateRoute>} />
         </Route>
       </Routes>
