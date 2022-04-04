@@ -20,7 +20,6 @@ const ProductItem = ({ product }) => {
       })
       navigate('/signin')
     }
-    // console.log(product.id)
     dispatch(addCartItem(product.id))
   }
 

@@ -31,6 +31,7 @@
       flex: 2
       box-shadow: rgba(0, 0, 0, 0.12) 6px 6px 16px
       padding: 1em
+      height: 400px
       .info-title
         margin-top: 0
       .checkout-unit
@@ -58,6 +59,26 @@
         cursor: pointer
         &:hover
           background: #ff385c
+          color: $light
+      .tradeform
+        height: 0
+        scale(1,0)
+        .tradeInfo
+          visibility: hidden
+          height: 0
+          width: 0
+      .checkout-payment
+        width: 100%
+        border: 1px solid $step-checked
+        background: $light
+        color: $text-content
+        height: 40px
+        font-size: 1em
+        font-weight: 500
+        border-radius: 0.25em
+        cursor: pointer
+        &:hover
+          background: $text-content
           color: $light
       .checkout-back
         margin-top: 1em

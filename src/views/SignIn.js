@@ -21,7 +21,6 @@ const SignIn = () => {
       })
       return
     }
-    console.log('submit')
     try {
       const result = await dispatch(loginUser({ email, password }))
       if(result) {

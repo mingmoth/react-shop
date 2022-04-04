@@ -33,7 +33,6 @@ const SignUp = () => {
       setPasswordCheck('')
       return
     }
-    console.log('submit')
     try {
       const result = await dispatch(signupUser({ name, email, password, passwordCheck }))
       if(result) {

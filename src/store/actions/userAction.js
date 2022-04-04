@@ -49,7 +49,6 @@ export const getCurrentUser = () => {
       if (statusText !== 'OK') {
         throw new Error()
       }
-      console.log(data)
       dispatch(userActions.loginUser(data))
     } catch (error) {
       console.log(error.message)

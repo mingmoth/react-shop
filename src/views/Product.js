@@ -16,7 +16,6 @@ const Product = () => {
 
   const addCart = (e) => {
     e.preventDefault()
-    console.log('add')
     if(!isAuthenticated) {
       Toast.fire({
         icon: 'warning',
