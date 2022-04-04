@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/react-shop/static/css/main.a4823f3b.css",
+    "main.js": "/react-shop/static/js/main.d19ba08e.js",
+    "index.html": "/react-shop/index.html",
+    "static/media/angle-left-solid.svg": "/react-shop/static/media/angle-left-solid.f82d9bfa73ee379ae304246d91ccc6c4.svg",
+    "main.a4823f3b.css.map": "/react-shop/static/css/main.a4823f3b.css.map",
+    "main.d19ba08e.js.map": "/react-shop/static/js/main.d19ba08e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a4823f3b.css",
+    "static/js/main.d19ba08e.js"
+  ]
+}
