@@ -1,14 +1,5 @@
-$mainPink: #f67599
-$text-content: #2a2a2a
-$dark: #000
-$light: #ffffff
-$footer-grey: #e5e5e5
-$footer-text-grey: #808080
-$step-grey: #afb1bd
-$step-checked: #2a2a2a
-$border-grey: #f0f0f5
-$input-grey: #999999
-$cart-bg: #ffffff
+@import './variables'
+@import './rwd'
 
 .product
   flex-basis: 18%
@@ -67,13 +58,13 @@ $cart-bg: #ffffff
       &:hover
         background: $step-checked
         color: $light
-      // +breakpoint(mobile)
-      //   font-size: 12px
-// +breakpoint(pad-portrait)
-//   flex-basis: 50%
-//   max-width: 50%
-// +breakpoint(mobile)
-//   min-width: 100%
+      +breakpoint(mobile)
+        font-size: 12px
+  +breakpoint(pad-portrait)
+    flex-basis: 48%
+    max-width: 48%
+  +breakpoint(mobile)
+    min-width: 100%
 
 .detail-container
   max-width: 1280px
@@ -81,23 +72,23 @@ $cart-bg: #ffffff
   margin-top: 90px
   padding: 2%
   display: flex
-  // +breakpoint(mobile)
-  //   display: block
-  //   padding: 4%
+  +breakpoint(mobile)
+    display: block
+    padding: 4%
   .detail-head
     display: flex
     flex-direction: column
     margin-right: 1.5em
-    // +breakpoint(mobile)
-    //   margin-bottom: 5%
+    +breakpoint(mobile)
+      margin-bottom: 5%
     .detail-image
       width: 30vw
       padding-top: 30vw
       min-width: 200px
       min-height: 200px
       position: relative
-      // +breakpoint(mobile)
-      //   width: calc( 100vw - 8% )
+      +breakpoint(mobile)
+        width: calc( 100vw - 8% )
       .detail-photo
         width: 100%
         height: 100%

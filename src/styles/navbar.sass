@@ -1,14 +1,5 @@
-$mainPink: #f67599
-$text-content: #2a2a2a
-$dark: #000
-$light: #ffffff
-$footer-grey: #e5e5e5
-$footer-text-grey: #808080
-$step-grey: #afb1bd
-$step-checked: #2a2a2a
-$border-grey: #f0f0f5
-$input-grey: #999999
-$cart-bg: #ffffff
+@import './variables'
+@import './rwd'
 
 nav
   width: 100%
@@ -35,10 +26,10 @@ nav
       color: $text-content
       font-size: 32px
       font-weight: 900
-      // +breakpoint(pad-portrait-980)
-      //   font-size: 1em
-      // +breakpoint(mobile)
-      //   display: none
+      +breakpoint(pad-portrait-980)
+        font-size: 1em
+      +breakpoint(mobile)
+        display: none
     img
       width: 24px
       height: 24px

@@ -1,16 +1,5 @@
-
-
-$mainPink: #f67599
-$text-content: #2a2a2a
-$dark: #000
-$light: #ffffff
-$footer-grey: #e5e5e5
-$footer-text-grey: #808080
-$step-grey: #afb1bd
-$step-checked: #2a2a2a
-$border-grey: #f0f0f5
-$input-grey: #999999
-$cart-bg: #ffffff
+@import './variables'
+@import './rwd'
 
 .auth
   width: 100vw
@@ -22,8 +11,8 @@ $cart-bg: #ffffff
   margin: 150px auto
   padding: 1.5em
   box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px
-  // +breakpoint(mobile)
-  //   width: 100%
+  +breakpoint(mobile)
+    width: 100%
 
 .auth-unit
   margin-bottom: 1em
