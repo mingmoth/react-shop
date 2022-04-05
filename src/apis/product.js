@@ -7,6 +7,9 @@ const productAPI = {
   },
   getProduct(productId) {
     return apiHelper.get(`/product/${productId}`)
+  },
+  searchProducts(keyword) {
+    return apiHelper.post('/search/product', keyword)
   }
 }
 

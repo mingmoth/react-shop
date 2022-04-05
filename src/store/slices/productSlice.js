@@ -5,6 +5,8 @@ export const productSlice = createSlice({
   initialState: {
     products: [],
     product: {},
+    searchKeyword: '',
+    searchProducts: []
   },
   reducers: {
     getProducts: (state, action) => {
@@ -13,6 +15,12 @@ export const productSlice = createSlice({
     getProduct: (state, action) => {
       state.product = action.payload
     },
+    setKeyword: (state, action) => {
+      state.searchKeyword = action.payload
+    },
+    getSearchProducts: (state, action) => {
+      state.searchProducts = action.payload
+    }
   },
 })
 

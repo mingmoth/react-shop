@@ -10,8 +10,9 @@ import PrivateRoute from './utils/PrivateRoute';
 import Navbar from './components/Navbar'
 import Home from './views/Home'
 import SignIn from './views/SignIn'
-import SignUp from './views/SignUp';
+import SignUp from './views/SignUp'
 import Product from './views/Product'
+import Search from './views/Search'
 import Cart from './views/Cart'
 import Checkout from './views/Checkout'
 
@@ -36,6 +37,7 @@ function App() {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/product/:id" element={<Product />} />
+          <Route path="/search" element={<Search />} />
           <Route path="/cart" element={<PrivateRoute>
             <Cart />
           </PrivateRoute>} />

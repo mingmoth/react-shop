@@ -1,15 +1,26 @@
 import { Fragment, useState } from "react"
-import { Outlet, Link } from 'react-router-dom'
+import { Outlet, Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { logoutUser } from '../store/actions/userAction'
+import { productActions } from "../store/slices/productSlice"
 
 import '../styles/navbar.sass'
 
 const Navbar = () => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const { isAuthenticated, currentUser }  = useSelector((state) => state.user)
 
   const [toggled, setToggled] = useState(false)
+  const [keyword, setKeyword] = useState('')
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    if(!keyword) return
+    dispatch(productActions.setKeyword(keyword))
+    setKeyword('')
+    navigate('/search')
+  }
 
   const toggleList = () => {
     setToggled(!toggled)
@@ -26,8 +37,8 @@ const Navbar = () => {
         <div className="nav-container">
           <Link to="/" className="nav-logo">My JEANS</Link>
           <div className="search-container">
-            <input type="text" name="search" id="search" placeholder="開始搜尋" />
-            <button></button>
+            <input type="text" name="search" id="search" placeholder="開始搜尋" value={keyword} onChange={(e) => {setKeyword(e.target.value)}}/>
+            <button className="search-btn" onClick={handleSubmit}>GO</button>
           </div>
           <div className={`nav-toggle ${ toggled? 'nav-toggled': '' }`} onClick={toggleList}>
             <div className="nav-ham"></div>
